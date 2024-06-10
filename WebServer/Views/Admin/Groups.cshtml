@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebServer.Models.GroupData>
+
+@{
+    ViewData["Title"] = "Группы";
+}
+
+<h1>Группы</h1>
+
+<p>
+    <a asp-action="CreateGroup">Создать новую</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Номер группы
+            </th>
+            <th>
+                Год
+            </th>
+            <th>
+                Специальность
+            </th>
+            <th>
+                Имя преподавателя
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Name)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Group_Id">Подробнее</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

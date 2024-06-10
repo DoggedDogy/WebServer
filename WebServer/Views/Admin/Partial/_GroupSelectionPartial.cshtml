@@ -1,0 +1,8 @@
+﻿@model WebServer.Models.Student
+
+<label asp-for="Group_Id" class="control-label">Группа</label>
+<select id="groupSelector" class="form-control" asp-for="Group_Id" asp-items="@ViewBag.GroupList">
+    <option value="">Выберите группу</option>
+    <option value="0">Новая группа</option>
+</select>
+<span asp-validation-for="Group_Id" class="text-danger"></span>

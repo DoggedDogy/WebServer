@@ -1,0 +1,22 @@
+﻿@model WebServer.Models.User
+
+@{
+    ViewData["Title"] = "Профиль пользователя";
+}
+
+<h1>Профиль пользователя</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">Имя:</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">Логин:</dt>
+        <dd class="col-sm-10">@Model.Login</dd>
+    </dl>
+    <dl class="row">
+        <dt class="col-sm-2">Email:</dt>
+        <dd class="col-sm-10">@Model.Email</dd>
+    </dl>
+</div>

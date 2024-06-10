@@ -1,0 +1,26 @@
+﻿@model WebServer.Models.Lab
+
+@{
+    ViewData["Title"] = "Добавить лабораторную работу";
+}
+
+<h1>Добавить лабораторную работу</h1>
+
+<form asp-action="AddLab" method="post">
+    <div class="form-group">
+        <label asp-for="Lab_Name" class="control-label">Название лабораторной работы:</label>
+        <input asp-for="Lab_Name" class="form-control" />
+        <span asp-validation-for="Lab_Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Steps" class="control-label">Количество шагов:</label>
+        <input asp-for="Steps" class="form-control" />
+        <span asp-validation-for="Steps" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="control-label">Описание:</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
+</form>

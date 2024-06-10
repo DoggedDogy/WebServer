@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebServer.Models.Lab>
+
+@{
+    ViewData["Title"] = "Лабораторные работы";
+}
+
+<h1>Лабораторные работы</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Название лабораторной работы
+            </th>
+            <th>
+                Количество шагов
+            </th>
+            <th>
+                Описание
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lab_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Steps)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

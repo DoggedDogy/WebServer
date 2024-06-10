@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Labwork>
+@{
+    ViewData["Title"] = "Журнал";
+}
+
+<h1>Журнал</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            @foreach (var lab in ViewBag.Labs)
+{
+            <th scope="col">@lab.Lab_Name</th>
+}
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var student in ViewBag.StudData)
+{
+        <tr>
+            <td>@student.Name</td>
+            @foreach (var lab in ViewBag.Labs)
+            {
+
+                @if (Model.FirstOrDefault(x => x.Student_Id == student.Student_Id || x.Lab_Id == lab.Lab_Id) != null)
+                {
+                    var data = Model.FirstOrDefault(x => x.Student_Id == student.Student_Id || x.Lab_Id == lab.Lab_Id);
+                    if (data.Finished)
+                    {
+                    <td>
+                        @data.Mark
+                    </td>
+                        }
+                        else
+                        {
+                    <td>
+                        этап @data.Done_Steps/@lab.Steps 
+                    </td>
+
+                    }
+                    }
+                
+                }
+            </tr>
+}
+    </tbody>
+</table>
